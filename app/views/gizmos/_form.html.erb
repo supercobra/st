@@ -1,0 +1,37 @@
+<%= form_with(model: gizmo) do |form| %>
+  <% if gizmo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(gizmo.errors.count, "error") %> prohibited this gizmo from being saved:</h2>
+
+      <ul>
+        <% gizmo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :bool1, style: "display: block" %>
+    <%= form.check_box :bool1 %>
+  </div>
+
+  <div>
+    <%= form.label :string1, style: "display: block" %>
+    <%= form.text_field :string1 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
